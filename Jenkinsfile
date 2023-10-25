@@ -8,7 +8,7 @@ pipeline {
             steps {
                 // Docker imajını oluştur
                 script {
-                    sh 'docker image build -t webimage:$version .'
+                    sh 'docker image build -t webimage:${BUILD_NUMBER} .'
                 }
             }
         }
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 // Sunucuda Docker imajını başlat
                 script {
-                    sh 'docker run webimage:$BUILD_NUMBER' // Veya başka bir komut ile imajı başlatın
+                    sh 'docker run webimage:${BUILD_NUMBER}' // Veya başka bir komut ile imajı başlatın
                 }
             }
         }
