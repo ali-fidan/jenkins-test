@@ -8,7 +8,7 @@ pipeline {
             steps {
                 // Docker imajını oluştur
                 script {
-                    sh 'docker image build -t webimage:$version'
+                    sh 'docker image build -t webimage:$version .'
                 }
             }
         }
