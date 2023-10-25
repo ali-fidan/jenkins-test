@@ -18,7 +18,8 @@ pipeline {
             steps {
                 // Sunucuda Docker imajını başlat
                 script {
-                    sh 'docker run -dp 80:80 webimage:${BUILD_NUMBER}' // Veya başka bir komut ile imajı başlatın
+                    sh 'docker rm -f jenkins'
+                    sh 'docker run -dp 80:80 --name jenkins webimage:${BUILD_NUMBER}' // Veya başka bir komut ile imajı başlatın
                 }
             }
         }
